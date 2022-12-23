@@ -1,0 +1,12 @@
+[Unit]
+Description=Hardware Monitor
+After=multi-user.target
+
+[Service]
+Type=simple
+User=dmitry
+ExecStart=/usr/bin/python3 /home/username/git/HardwareMonitor/hwmAmd/hwm.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
