@@ -84,7 +84,7 @@ void printData() {
   if (PCdata[6] < 100) display.write(247);
   // GPU load
   display.setCursor(110, 9); display.print(PCdata[1]); 
-    if (PCdata[1] < 100) perc = "% ";
+    if (PCdata[1] < 100) perc = "%";
       else perc = "";  display.print(perc);
   // GPU memory usage
   display.setCursor(110, 18); display.print(PCdata[2]);
@@ -92,7 +92,7 @@ void printData() {
     else perc = "";  display.print(perc);
   // RAM usage
   display.setCursor(110, 27); display.print(PCdata[3]);
-  if (PCdata[3] < 10) perc = "%";
+  if (PCdata[3] < 100) perc = "%";
     else perc = "";  display.print(perc);
   // SWAP usage
   display.setCursor(110, 36); display.print(PCdata[4]);

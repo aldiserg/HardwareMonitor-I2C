@@ -8,7 +8,7 @@ if [ -z $1 ] || [ "$1" != "amd" ] && [ "$1" != "nvidia" ]
 then
 echo $1
 	echo "Usage:
-./install.sh amd/nvidia gpuMemTotalMb /dev/ttyUSB0
+./install.sh amd/nvidia gpuMemTotalMb /path/to/USB
 
 Example:
 ./install.sh amd 12000 /dev/ttyUSB0
