@@ -2,6 +2,7 @@
 Analog of https://github.com/AlexGyver/PCdisplay for linux OS. Just displayed system perfomance info 
 
 ![How it looks like](https://github.com/aldiserg/HardwareMonitor-I2C/blob/main/view.png?raw=true)
+![Connection](https://github.com/aldiserg/HardwareMonitor-I2C/blob/main/connections.png?raw=true)
 
 # Requirements
 python3 and pip3
