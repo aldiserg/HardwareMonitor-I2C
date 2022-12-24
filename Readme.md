@@ -5,7 +5,14 @@ Analog of https://github.com/AlexGyver/PCdisplay for linux OS. Just displayed sy
 ![Connection](https://github.com/aldiserg/HardwareMonitor-I2C/blob/main/connections.png?raw=true)
 
 # Requirements
-python3 and pip3
+Hardware:
+  1. Arduino
+  2. OLED display with i2c
+
+Software:
+  1. Python3
+  2. pip3
+  3. Arduino ide
 
 # Setup via script
 Using install.sh
