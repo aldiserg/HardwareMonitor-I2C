@@ -14,6 +14,9 @@ Software:
   2. pip3
   3. Arduino ide
 
+Advanced:
+  1. 3d printer ([Case model](https://www.thingiverse.com/thing:6146515))
+
 # Setup via script
 Using install.sh
 
