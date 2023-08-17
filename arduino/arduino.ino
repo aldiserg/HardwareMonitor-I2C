@@ -41,10 +41,10 @@ void loop() {
     }
   }
 
-  while (Serial.available() == 7) {
+  while (Serial.available() == 8) {
     err = 0;
     printErr = 0;
-    for (int i = 0; i < 7; i++) { 
+    for (int i = 0; i < 8; i++) { 
       char aChar = Serial.read();
       PCdata[i] = aChar;
     }
@@ -69,19 +69,21 @@ void static_info() {
   display.print("RAMuse:");
   display.setCursor(0, 36);
   display.print("SWAP:");
+  display.setCursor(0, 45);
+  display.print("Disk:");
 }
 
 void printData() {
   // CPU temp
-  display.setCursor(22, 0); display.print(PCdata[5]);
-  if (PCdata[5] < 100) display.write(247);
+  display.setCursor(22, 0); display.print(PCdata[6]);
+  if (PCdata[6] < 100) display.write(247);
   // CPU load
   display.setCursor(110, 0); display.print(PCdata[0]);
   if (PCdata[0] < 100) perc = "%";
     else perc = "";  display.print(perc);
   // GPU temp
-  display.setCursor(22, 9); display.print(PCdata[6]);
-  if (PCdata[6] < 100) display.write(247);
+  display.setCursor(22, 9); display.print(PCdata[7]);
+  if (PCdata[7] < 100) display.write(247);
   // GPU load
   display.setCursor(110, 9); display.print(PCdata[1]); 
     if (PCdata[1] < 100) perc = "%";
@@ -98,11 +100,15 @@ void printData() {
   display.setCursor(110, 36); display.print(PCdata[4]);
   if (PCdata[4] < 100) perc = "%";
     else perc = "";  display.print(perc);
+  // Disk usage
+  display.setCursor(110, 45); display.print(PCdata[5]);
+  if (PCdata[5] < 100) perc = "%";
+    else perc = "";  display.print(perc);
 }
 //     
 void printTable() {
   int k = 0;
-  for (int16_t i = 1; i<display.height()-18; i+=9) {
+  for (int16_t i = 1; i<display.height()-9; i+=9) {
     int line = ceil(PCdata[k] * barHeight / 100);
     display.drawRect(40, i, barHeight, 6, SSD1306_WHITE);
     display.fillRect(40, i, line, 6, SSD1306_WHITE);

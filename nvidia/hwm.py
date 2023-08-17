@@ -26,8 +26,11 @@ while True:
 
     swap = int(psutil.swap_memory().percent)
 
-    print(f'cpu: {cpu}%, gpu: {gpuUsage}%, gpuMemPercentUsage: {gpuMemPercentUsage}%, ram: {ram}%, cpuTemp: {cpuTemp}, gpuTemp: {gpuTemp}, swap: {swap}%')
+    obj_Disk = psutil.disk_usage('/')
+    diskusage = int(obj_Disk.percent)
 
-    arduino.write(struct.pack('BBBBBBB',cpu,gpuUsage,gpuMemPercentUsage,ram,swap,cpuTemp,gpuTemp))
+    print(f'cpu: {cpu}%, gpu: {gpuUsage}%, gpuMemPercentUsage: {gpuMemPercentUsage}%, ram: {ram}%, cpuTemp: {cpuTemp}, gpuTemp: {gpuTemp}, swap: {swap}%, diskUsage: {diskusage}%')
+
+    arduino.write(struct.pack('BBBBBBBB',cpu,gpuUsage,gpuMemPercentUsage,ram,swap,diskusage,cpuTemp,gpuTemp))
     time.sleep(1)
     
