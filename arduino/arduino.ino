@@ -13,6 +13,7 @@ unsigned long err;
 int barHeight = 68;
 int PCdata[7];
 int printErr;
+int blank;
 String perc;
 
 void setup() {
@@ -30,14 +31,20 @@ void loop() {
     if (err == 0){
       err = millis();
     }
-    if (millis() - err > (unsigned long) 10*1000 && printErr != 1) {
+    if (millis() - err > (unsigned long) 5*1000 && printErr != 1) {
       display.clearDisplay();
       printErr = 1;
       display.setCursor(39, 25);
       display.print("CONNECTION");
       display.setCursor(51, 33);
       display.print("FAILED");
-      display.display(); 
+      display.display();
+      blank = 1;
+    }
+    if (millis() - err > (unsigned long) 60*1000 && blank == 1) {
+      display.clearDisplay();
+      display.display();
+      blank = 0; // stop loop and save blank screen
     }
   }
 
